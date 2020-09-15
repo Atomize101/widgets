@@ -12,6 +12,8 @@ const Accordion = ( { items }) => {
     };
 
     const renderedItems = items.map((item, index) => {
+        
+        // Logic to check and apply the active state
         const active = index === activeIndex ? 'active' : '';
 
         return (
