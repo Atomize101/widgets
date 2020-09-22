@@ -1,4 +1,4 @@
-import Axios from 'axios';
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -26,11 +26,12 @@ const Search = () => {
 	const renderedResults = results.map((result) => {
 		return (
 			<div key={result.pageid} className="item">
-				<div className="content">
-					<div className="header">
-                        {result.title}
-                    </div>
-                    <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
+				<div className="right floated content">
+                    <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`}>Go</a>
+                </div>
+                <div className="content">
+					<div className="header">{result.title}</div>
+					<span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
 				</div>
 			</div>
 		);
@@ -44,7 +45,7 @@ const Search = () => {
 					<input value={term} onChange={(e) => setTerm(e.target.value)} className="input"></input>
 				</div>
 			</div>
-    <div className="ui called list">{renderedResults}</div>
+			<div className="ui called list">{renderedResults}</div>
 		</div>
 	);
 };
